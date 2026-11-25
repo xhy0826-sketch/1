@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>暑假最難忘的回憶：海邊之旅</title>
+    <style>
+        :root {
+            --ocean-blue: #0077b6;
+            --sky-blue: #90e0ef;
+            --sand-yellow: #fdf8e7;
+            --sunset-orange: #f4a261;
+            --text-dark: #2b2d42;
+            --text-muted: #555b6e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+            background-color: var(--sand-yellow);
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        /* 頁首主視覺區塊 */
+        header {
+            background: linear-gradient(135deg, #0077b6 0%, #00b4d8 60%, #90e0ef 100%);
+            min-height: 360px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 40px 20px 80px;
+        }
+
+        header h1 {
+            font-size: 2.6rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.25);
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.15rem;
+            max-width: 600px;
+            opacity: 0.95;
+        }
+
+        /* 主要內容容器 */
+        .container {
+            max-width: 960px;
+            margin: -50px auto 60px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* 故事卡片區塊 */
+        .story-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            transition: transform 0.3s ease;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 交錯排版：偶數卡片插圖在右邊 */
+        .story-card:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .card-visual {
+            width: 48%;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .card-visual svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .card-content {
+            width: 52%;
+            padding: 35px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .time-badge {
+            display: inline-block;
+            align-self: flex-start;
+            background-color: var(--sky-blue);
+            color: var(--ocean-blue);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .story-card.sunset .time-badge {
+            background-color: #ffe5d9;
+            color: #d95d39;
+        }
+
+        .card-content h2 {
+            font-size: 1.5rem;
+            color: var(--ocean-blue);
+            margin-bottom: 15px;
+        }
+
+        .story-card.sunset .card-content h2 {
+            color: #d95d39;
+        }
+
+        .card-content p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        /* 結語區塊 */
+        .conclusion {
+            background: linear-gradient(135deg, #0077b6, #00b4d8);
+            color: white;
+            border-radius: 16px;
+            padding: 45px 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 119, 182, 0.2);
+        }
+
+        .conclusion h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .conclusion p {
+            font-size: 1.1rem;
+            max-width: 750px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+
+        /* 頁尾 */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* 手機版響應式設計 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.9rem;
+            }
+            .story-card, .story-card:nth-child(even) {
+                flex-direction: column;
+            }
+            .card-visual, .card-content {
+                width: 100%;
+            }
+            .card-visual {
+                height: 220px;
+                min-height: 220px;
+            }
+            .card-content {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 頁首橫幅 -->
+    <header>
+        <h1>🌊 暑假最難忘的海邊之旅</h1>
+        <p>今年暑假，我有許多快樂的回憶，其中最讓我難忘的，就是和家人一起去海邊玩。</p>
+    </header>
+
+    <!-- 主要故事區 -->
+    <main class="container">
+
+        <!-- 段落一：早晨出發與玩水 -->
+        <article class="story-card">
+            <div class="card-visual" aria-label="湛藍的大海與海浪插圖">
+                <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#48cae4"/>
+                            <stop offset="100%" stop-color="#caf0f8"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="400" height="300" fill="url(#sky1)"/>
+                    <circle cx="320" cy="65" r="32" fill="#ffd166"/>
+                    <path d="M55 75 Q70 55 90 70 Q110 55 125 75 Z" fill="#ffffff" opacity="0.85"/>
+                    <path d="M160 55 Q172 40 188 52 Q204 40 216 55 Z" fill="#ffffff" opacity="0.7"/>
+                    <path d="M0 175 Q100 155 200 175 T400 175 L400 300 L0 300 Z" fill="#0096c7"/>
+                    <path d="M0 205 Q100 185 200 205 T400 205 L400 300 L0 300 Z" fill="#0077b6"/>
+                    <path d="M0 240 Q100 220 200 240 T400 240 L400 300 L0 300 Z" fill="#023e8a"/>
+                    <path d="M30 220 Q60 210 90 220" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.8"/>
+                    <path d="M230 190 Q265 180 300 190" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.8"/>
+                </svg>
+            </div>
+            <div class="card-content">
+                <span class="time-badge">☀️ 活力早晨</span>
+                <h2>奔向湛藍的大海</h2>
+                <p>那天早上，我們早早就起床了，準備好水、食物和玩沙的工具後，便開開心心地出發。到了海邊，我一看到湛藍的大海，就興奮得想立刻衝進水裡。我和爸爸一起到海裡玩水，海浪一個接著一個打過來，我們一邊躲浪，一邊大聲歡笑，玩得非常開心。</p>
+            </div>
+        </article>
+
+        <!-- 段落二：午後堆沙堡 -->
+        <article class="story-card">
+            <div class="card-visual" aria-label="沙灘上的沙堡與貝殼插圖">
+                <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="400" height="300" fill="#ade8f4"/>
+                    <rect y="140" width="400" height="50" fill="#00b4d8"/>
+                    <path d="M0 180 Q200 165 400 180 L400 300 L0 300 Z" fill="#f4d58d"/>
+                    <!-- 沙堡主體 -->
+                    <rect x="135" y="130" width="130" height="105" rx="4" fill="#e0a96d"/>
+                    <rect x="110" y="150" width="40" height="85" rx="3" fill="#d49a5a"/>
+                    <rect x="250" y="150" width="40" height="85" rx="3" fill="#d49a5a"/>
+                    <!-- 城垛 -->
+                    <rect x="135" y="116" width="20" height="16" fill="#e0a96d"/>
+                    <rect x="172" y="116" width="20" height="16" fill="#e0a96d"/>
+                    <rect x="208" y="116" width="20" height="16" fill="#e0a96d"/>
+                    <rect x="245" y="116" width="20" height="16" fill="#e0a96d"/>
+                    <!-- 城門與旗幟 -->
+                    <path d="M182 235 L182 195 A18 18 0 0 1 218 195 L218 235 Z" fill="#8d5524"/>
+                    <line x1="200" y1="116" x2="200" y2="75" stroke="#8d5524" stroke-width="4"/>
+                    <polygon points="200,75 235,88 200,100" fill="#ef476f"/>
+                    <!-- 貝殼裝飾 -->
+                    <circle cx="95" cy="252" r="10" fill="#ffcad4"/>
+                    <circle cx="305" cy="248" r="12" fill="#ffffff"/>
+                    <circle cx="155" cy="262" r="8" fill="#ffd166"/>
+                </svg>
+            </div>
+            <div class="card-content">
+                <span class="time-badge">🏰 歡樂午後</span>
+                <h2>打造夢想中的沙堡</h2>
+                <p>玩累了以後，我和妹妹來到沙灘上堆沙堡。我們用小鏟子挖沙子，再把沙子堆成一座高高的城堡，還撿了許多漂亮的貝殼來裝飾。看著自己親手完成的沙堡，我們都覺得很有成就感。媽媽則在旁邊幫我們拍照，把這些開心的時刻一一記錄下來。</p>
+            </div>
+        </article>
+
+        <!-- 段落三：傍晚看夕陽 -->
+        <article class="story-card sunset">
+            <div class="card-visual" aria-label="金黃色的海邊夕陽插圖">
+                <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="sunsetSky" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#f77f00"/>
+                            <stop offset="55%" stop-color="#fcbf49"/>
+                            <stop offset="100%" stop-color="#eae2b7"/>
+                        </linearGradient>
+                        <linearGradient id="sunsetSea" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#d62828"/>
+                            <stop offset="100%" stop-color="#003049"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="400" height="190" fill="url(#sunsetSky)"/>
+                    <circle cx="200" cy="175" r="52" fill="#fff3b0"/>
+                    <rect y="185" width="400" height="115" fill="url(#sunsetSea)"/>
+                    <!-- 海面金色倒影 -->
+                    <ellipse cx="200" cy="200" rx="55" ry="6" fill="#ffd166" opacity="0.85"/>
+                    <ellipse cx="200" cy="218" rx="42" ry="5" fill="#ffd166" opacity="0.7"/>
+                    <ellipse cx="200" cy="236" rx="30" ry="4" fill="#ffd166" opacity="0.55"/>
+                    <ellipse cx="200" cy="255" rx="18" ry="3" fill="#ffd166" opacity="0.4"/>
+                </svg>
+            </div>
+            <div class="card-content">
+                <span class="time-badge">🌅 浪漫傍晚</span>
+                <h2>金色光芒下的幸福時光</h2>
+                <p>到了傍晚，太陽漸漸落下，天空被染成美麗的橘紅色，海面上也閃耀著金色的光芒。我們坐在柔軟的沙灘上，一邊欣賞夕陽，一邊吃著準備好的點心。海風吹過臉頰，讓人感到舒服又放鬆。那一刻，我覺得時間好像變慢了，只希望這個幸福的時光不要那麼快結束。</p>
+            </div>
+        </article>
+
+        <!-- 段落四：結語 -->
+        <section class="conclusion">
+            <h2>✨ 珍貴而美好的回憶</h2>
+            <p>雖然這次海邊之旅只有短短一天，卻讓我留下了非常深刻的回憶。和家人一起玩水、堆沙堡、看夕陽的畫面，到現在想起來，我的臉上還是會露出笑容。我希望以後還能和家人一起創造更多美好的回憶。這次海邊之旅，將會是我暑假中最珍貴、最難忘的一段時光。</p>
+        </section>
+
+    </main>
+
+    <!-- 頁尾 -->
+    <footer>
+        <p>© 我的暑假生活日記 | 紀錄與家人的美好時光</p>
+    </footer>
+
+</body>
+</html>
